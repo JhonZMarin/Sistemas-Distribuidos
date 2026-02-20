@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coordinator Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <div id="notifications" class="notifications"></div>
+
+    <div class="container">
+        <h1>Coordinador Jhon Marin 🚀</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Rastreados</h3>
+                <p id="totalServers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Activos</h3>
+                <p id="activeServers">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Timeouts</h3>
+                <p id="totalTimeouts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Timestamp</h3>
+                <p id="timestamp">--</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>URL</th>
+                        <th>Heartbeat</th>
+                        <th>Pulsos</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="serversTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
