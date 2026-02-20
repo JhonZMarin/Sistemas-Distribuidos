@@ -9,7 +9,6 @@ const TIMEOUT = 5000
 app.use(cors())
 app.use(express.json())
 
-// 🔥 Esto permite servir archivos estáticos
 app.use(express.static(path.join(__dirname, "public")))
 
 let servers = {}
@@ -32,10 +31,6 @@ app.post("/register", (req, res) => {
     console.log(`Servidor registrado en ${id} - ${url}`)
     res.json({ message: "registrado" })
 })
-/*
-app.get("/", (req, res) => {
-    res.send("Coordinator funcionando 🚀")
-})*/
 
 app.post("/pulse", (req, res) => {
     const { id } = req.body
