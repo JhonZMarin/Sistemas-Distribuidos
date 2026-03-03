@@ -20,15 +20,20 @@ async function loadData() {
     try {
         const serversRes = await fetch("/servers")
         const metricsRes = await fetch("/metrics")
+        const backupsRes = await fetch("/backups")
+        const modeRes = await fetch("/mode")
 
+
+        const backups = await backupsRes.json()
         const servers = await serversRes.json()
         const metrics = await metricsRes.json()
-
+        const modeData = await modeRes.json()
         const table = document.getElementById("serversTable")
         table.innerHTML = ""
 
         const now = Date.now()
         let activeCount = 0
+        document.getElementById("mode").innerText = modeData.mode
 
         
         for (let id in previousServers) {
@@ -98,6 +103,16 @@ async function loadData() {
         document.getElementById("totalTimeouts").innerText = metrics.totalTimeouts
         document.getElementById("timestamp").innerText = new Date().toLocaleTimeString()
 
+        // Actualizar backups
+        document.getElementById("totalBackups").innerText = backups.length
+
+        const backupList = document.getElementById("backupList")
+        backupList.innerHTML = ""
+
+        backups.forEach(b => {
+            backupList.innerHTML += `<li>${b}</li>`
+        })
+
     } catch (error) {
         console.error("Error cargando datos:", error)
     }
@@ -105,3 +120,22 @@ async function loadData() {
 
 loadData()
 setInterval(loadData, 2000)
+async function registerBackup() {
+    const url = document.getElementById("backupUrl").value
+    if (!url) return
+
+    await fetch("/register-backup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+    })
+
+    document.getElementById("backupUrl").value = ""
+    loadData()
+}
+
+async function forceSync() {
+    await fetch("/force-sync", {
+        method: "POST"
+    })
+}

@@ -18,6 +18,16 @@
             </div>
 
             <div class="card">
+                <h3>Backups</h3>
+                <p id="totalBackups">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Modo</h3>
+                <p id="mode">Primario</p>
+            </div>
+
+            <div class="card">
                 <h3>Activos</h3>
                 <p id="activeServers">0</p>
             </div>
@@ -47,6 +57,24 @@
                 <tbody id="serversTable"></tbody>
             </table>
         </div>
+            <div class="table-container" style="margin-top: 30px;">
+                <h3>Backups registrados</h3>
+
+                <input type="text" id="backupUrl" placeholder="http://localhost:4000" 
+                    style="padding:8px; border-radius:6px; border:none; margin-right:10px;">
+
+                <button onclick="registerBackup()" 
+                    style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer;">
+                    Registrar Backup
+                </button>
+
+                <button onclick="forceSync()" 
+                    style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer; margin-left:10px;">
+                    Forzar Sync
+                </button>
+
+                <ul id="backupList" style="margin-top:20px;"></ul>
+            </div>
     </div>
 
     <script src="/js/dashboard.js"></script>
