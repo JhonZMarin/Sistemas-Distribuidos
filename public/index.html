@@ -9,7 +9,7 @@
     <div id="notifications" class="notifications"></div>
 
     <div class="container">
-        <h1>Coordinador Jhon Marin </h1>
+        <h1>Coordinador Jhon Marin</h1>
 
         <div class="cards">
             <div class="card">
@@ -51,30 +51,33 @@
                         <th>URL</th>
                         <th>Heartbeat</th>
                         <th>Pulsos</th>
+                        <th>Origen</th> 
                         <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody id="serversTable"></tbody>
             </table>
         </div>
-            <div class="table-container" style="margin-top: 30px;">
-                <h3>Backups registrados</h3>
 
-                <input type="text" id="backupUrl" placeholder="http://localhost:4000" 
-                    style="padding:8px; border-radius:6px; border:none; margin-right:10px;">
+        <div class="table-container" style="margin-top: 30px;">
+            <h3>Backups registrados</h3>
 
-                <button onclick="registerBackup()" 
-                    style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer;">
-                    Registrar Backup
-                </button>
+            <input type="text" id="backupUrl" placeholder="http://localhost:4000"
+                style="padding:8px; border-radius:6px; border:none; margin-right:10px;">
 
-                <button onclick="forceSync()" 
-                    style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer; margin-left:10px;">
-                    Forzar Sync
-                </button>
+            <button onclick="registerBackup()"
+                style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer;">
+                Registrar Backup
+            </button>
 
-                <ul id="backupList" style="margin-top:20px;"></ul>
-            </div>
+            <button onclick="forceSync()"
+                style="padding:8px 12px; border:none; border-radius:6px; cursor:pointer; margin-left:10px;">
+                Forzar Sync
+            </button>
+
+            <ul id="backupList" style="margin-top:20px;"></ul>
+        </div>
+
     </div>
 
     <script src="/js/dashboard.js"></script>
